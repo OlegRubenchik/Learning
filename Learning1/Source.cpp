@@ -2,11 +2,22 @@
 #include <string>
 using namespace std;
 //RANDOM PRACTICE
+// --------------
+//arrays
 void Arrays1d();
 void Arrays2d();
-void pointers1();
-void class_string();
 void dynamic_array();
+void pointer_to_array();
+
+//strings
+void class_string();
+
+//references and pointers
+void pointers();
+void references();
+void references_reassigning();
+void pointers_and_references_in_a_functions();
+void pointers_memory_allocation();
 
 //SOFDEV
 void Lab3Testing();
@@ -23,7 +34,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	w5_EX5();
+	pointer_to_array();
 
 	return 0;
 }
@@ -75,6 +86,16 @@ void Arrays2d() {
 		cout << endl;
 	}
 }
+void pointer_to_array() {
+	int ARRAY[] = { 1,3,5 };
+	cout << ARRAY; // the ADDRESS of the FIRST ELEMENT in the ARRAY
+	int* p;
+	p = ARRAY; // copying that ADDRESS to a pointer "p"
+	cout << *(p + 1); // printing the VALUE that STORES in the ADDRESS of (1+1) ELEMENT of an ARRAY
+	
+	
+	cout << p[2] << endl << *p;
+}
 void Lab3Testing() {
 	int total[10];
 	const int SIZE = 10;
@@ -84,12 +105,6 @@ void Lab3Testing() {
 	for (int i = 0; i < SIZE; i++) {
 		cout << total[i] << '\n';
 	}
-}
-void pointers1() {
-	int* ptr = new int(10);
-	// printing value and address
-	cout << "Address: " << ptr << endl;
-	cout << "Value: " << *ptr << endl; 
 }
 void class_string() {
 	string str = " Yo, wassup?";
@@ -102,7 +117,77 @@ void dynamic_array() {
 	cout << *A;
 	delete []A;
 }
+void references() {
+	int x = 5;
+	int& rX = x;
+	cout << "VALUE(X): " << x << '\n';
+	cout << "&rX:" << &rX << '\n';
+	cout << "rX:" << rX << '\n';
+}
+void references_reassigning() { //YOU CANNOT REASSIGN REFERENCES. Here's an example:
+	int a = 10; // A value 
+	int& reference = a; /**"&reference" is copying an ADDRESS of VALUE "a".
+							"reference" is a VALUE stored in the ADDRESS "&reference".
+							*/ 
+	int b = 100; // Another value
+	reference = b; // The VALUE stored in the ADDRESS "&reference" got changed to a same value as b.
+	cout << a; // 100
 
+}
+//BUT YOU CAN REASSIGN POINTERS
+void pointers() {
+	int x = 5; //A VALUE
+	int* p = &x; //A POINTER
+	cout << "The value (X): " << x << endl; // the VALUE
+	cout << "The address of a value (&x): " << &x << endl; // the ADDRESS of a VALUE
+	cout << "The pointer (p): " << p << endl; // the ADDRESS where POINTER POINTS
+	cout << "The value that pointer is pointing to (*p): " << *p << endl; // the VALUE thats stores in the ADDRESS where POINTER POINTS
+	cout << endl << "--------------------------------------------------" << endl;
+	//YOU CAN CHANGE A VALUE STORED IN THE ADDRESS WHERE POINTER POINTS:
+	*p = 10;
+	cout << "Changes has been made. (*p = 10;)\n";
+	cout << "Now the value (X) is: " << x << endl; // Now X == 10
+	cout << endl << "--------------------------------------------------" << endl;
+	//YOU CAN CHANGE THE ADDRESS WHERE POINTER IS POINTING TO:
+	int y = 1;
+	cout << "Added a new variable (int y = 1;)\n";
+	cout << "The address where pointer is pointing to: " << p << endl;
+	p = &y; // Reassigning "p" to a NEW ADDRESS
+	cout << "'p' is reassigned to a NEW ADDRESS of 'y'. (p = &y;)\n";
+	cout << "Now the address where pointer is pointing to has changed: " << p << endl;
+
+
+	cout << endl;
+	cout << endl;
+}
+void pointers_memory_allocation(){
+
+}
+
+//Functions for "pointers_and_references"
+	void changeToValue_Nothing(int variable, int value) { //passed by value
+		variable = value;
+	}
+	void changeToValue_WithReference(int& variable, int value) { //passed by reference
+		variable = value;
+	}
+	void changeToValue_WithPointer(int* variable, int value) { //passed by pointer
+		*variable = value;
+	}
+void pointers_and_references_in_a_functions() {
+	int x = 5; //A value x that equals 5
+	int* pX/**A pointer TO an ADDRESS*/ = &x/**The ADDRESS of a VALUE*/;
+
+	changeToValue_Nothing(x, 10); // A function copying the VALUE of x and changes it inside a function
+	cout << x << endl; // Still X = 5
+
+	changeToValue_WithReference(x, 10); /**A function copying the ADDRESS of x and changes x by accessig htat ADDRESS.
+										So X will be changed in it's own memory address(GLOBALLY).*/ 
+	cout << x << endl; // Now X = 10
+
+	changeToValue_WithPointer(&x, 15); // A function is copying the ADDRESS of x and changes A VALUE STORED IN THAT ADDRESS.
+	cout << x << endl; // Now X = 15
+}
 
 
 
