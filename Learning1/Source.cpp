@@ -435,56 +435,117 @@ bool practiceAction(int choice) {
 		Arrays1d();
 		cout << endl;
 		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
 		cout << endl;
 		cout << endl;
 		break;
 	case 2:
 		system("CLS");
 		Arrays2d();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 3:
 		system("CLS");
 		class_string();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 4:
 		system("CLS");
 		references();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 5:
 		system("CLS");
 		references_reassigning();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 6:
 		system("CLS");
 		pointers();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 7:
 		system("CLS");
 		pointers_reassigning();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 8:
 		system("CLS");
 		pointer_to_array();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 9:
 		system("CLS");
 		pointer_to_pointer();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 10:
 		system("CLS");
 		pointers_and_references_in_a_functions();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 11:
 		system("CLS");
 		dynamic_memory_allocation();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	case 12:
 		system("CLS");
 		dynamic_memory_allocation_arrays();
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 	default:
 		system("CLS");
 		cerr << "Are you dumb?" << endl;
+		cout << endl;
+		cout << endl;
+		cout << "Go in the code, find that function and see how it works";
+		cout << endl;
+		cout << endl;
 		break;
 
 
@@ -495,15 +556,21 @@ void wholeInterface() {
 	bool flag_0 = true;
 	while (flag_0) {
 		switch (printMenu()) {
-		case 0:
+		case 0: {
 			flag_0 = false;
-			int choice;
-			cout << "Enter anythng to leave: ";
-			cin >> choice;
-			break;
-		case 1:
-			while (practiceAction(practiceMenu()));  // "practiceAction" returns false if "practiceMenu" returns 0.
-			break;
+			break; }
+		case 1: {
+			bool flag_1 = true;
+			while (flag_1) {  
+				flag_1 = practiceAction(practiceMenu()); // "practiceAction" returns false if "practiceMenu" returns 0.
+				if (flag_1) {
+					int choice;
+					cout << "Enter any number to continue: ";
+					cin >> choice;
+				}
+				
+			}
+			break; }
 		case 2:
 			cout << "Developing..." << endl;
 			break;
