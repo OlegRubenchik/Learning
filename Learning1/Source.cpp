@@ -168,8 +168,8 @@ void pointer_to_array() {
 			   // printing the VALUE that STORES in the ADDRESS of (1+1) ELEMENT of an ARRAY
 }	
 void pointer_to_pointer() {
-	char data[] = "It is a string";
-	cout << sizeof(data);
+	//@TODO
+	cout << "Developing...";
 }
 
 void dynamic_memory_allocation(){ // dynamicly allocate an integer variable
@@ -231,6 +231,8 @@ void dynamic_memory_allocation_arrays() {
 	void changeToValue_WithPointer(int* variable, int value) { //passed by pointer
 		*variable = value;
 	}
+
+
 void pointers_and_references_in_a_functions() {
 	int x = 5; //A value x that equals 5
 	int* pX/**A pointer TO an ADDRESS*/ = &x/**The ADDRESS of a VALUE*/;
