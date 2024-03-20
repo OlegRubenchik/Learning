@@ -6,22 +6,24 @@ void Arrays1d();
 void Arrays2d();
 void pointers1();
 void class_string();
+void dynamic_array();
 
 //SOFDEV
 void Lab3Testing();
 
-//STRINGS FROM MOODLE WEEK_5
+//STRINGS AND POINTERS FROM MOODLE WEEK_5
 void w5_EX1();
 void w5_EX2();
 void w5_EX3();
 void w5_EX4();
+void w5_EX5();
 
 //GLOBAL CONSTANTS
 const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	w5_EX4();
+	w5_EX5();
 
 	return 0;
 }
@@ -94,7 +96,17 @@ void class_string() {
 	str += '!';
 	cout << str + " Nigga"  << endl;
 }
-//Strings exercises fro Moodle
+void dynamic_array() {
+	int size = 7;
+	int* A = new int[size] {1,3};
+	cout << *A;
+	delete []A;
+}
+
+
+
+
+//Strings exercises from Moodle
 
 // Write a program to read a c-string s1 and copy it to another string s2. 
 // Display s2. Do not use any predefine functions apart from gets_s().
@@ -174,5 +186,41 @@ void w5_EX4() {
 	}
 	cout << endl << endl;
 	cout << "In total: " << total << '\n';
+}
+
+//Pointers exercises
+
+/**
+* Write a program and declare a pointer to double, called A. By using A allocate a dynamic array
+of size n, where n is previously given by the user. Hence, prompt the user to enter n double
+values. Find and display the average of the values in the array, along with the biggest value.
+Throughout this program use pointer notation for the array.
+*/
+void w5_EX5() {
+	int size;
+	double *A, average = 0, max = 0;
+	cout << "Enter size: ";
+	cin >> size;
+	
+	A = new double[size];
+	cout << "Enter " << size << " values: \n";
+	for (int i = 0; i < size; i++) {
+		double value;
+		cout << i << ": ";
+		cin >> value;
+		*(A + i) = value;
+	}
+	/**for (int i = 0; i < size; i++) {
+		cout << *(A + i) << " ";
+	}*/
+	for (int i = 0; i < size; i++) {
+		double n = *(A + i);
+		average += n;
+		if (max < n) max = n;
+	}
+	average /= size;
+	cout << "Average: " << average << '\n';
+	cout << "Max: " << max << '\n';
+	delete[]A;
 }
 
