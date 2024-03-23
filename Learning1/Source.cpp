@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+#include <stdlib.h> // for system("CLS")
+#include "WEEK6_MOODLE.h"
 using namespace std;
 //RANDOM PRACTICE
 // --------------
@@ -10,6 +11,12 @@ void Arrays2d();
 
 //strings
 void class_string();
+
+//enums
+void enums();
+
+//structures and classes
+void struct_();
 
 //references and pointers
 void references();
@@ -46,7 +53,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	wholeInterface();
+	W6_EX3();
 
 	return 0;
 }
@@ -105,6 +112,32 @@ void dynamic_array() {
 	cout << *A;
 	delete []A;
 }
+//enums
+
+enum Sex { // Define our own "Data type"
+	Male, Female, Mentally_Ill // Have values 0 , 1 , 2 ... n
+};
+void enums() {
+	Sex p = Female; 
+	std::cout << p << '\n'; // 1
+
+}
+//Structures and classes
+
+struct Point { // Declaration of a structure/class
+
+	int x; // Data member "x"
+	int y; // Data member "y"
+};
+void struct_() {
+	Point p; // Declaration of a variable for our struct/class
+	p.x = 3; // Intializing Data member "x"
+	p.y = 5; // Intializing Data member "y"
+	std::cout << p.x << " " << p.y << '\n';
+	p = { 1,3 }; // We can also intialize all data members at once like this. For n data members you need to insert n values in {} brackets.
+	std::cout << p.x << " " << p.y << '\n';
+}
+
 
 
 
