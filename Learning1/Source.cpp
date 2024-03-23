@@ -181,7 +181,7 @@ void dynamic_memory_allocation(){ // dynamicly allocate an integer variable
 
 	// "pointer_to_new_variable" was statically allocated at compile time
 	// unnamed variable(new int) dynamically allocated at run time
-	// so new we have TWO variables. One in the STACK and one in teh HEAP
+	// so now we have TWO variables. One in the STACK and one in the HEAP
 
 	*pointer_to_new_variable = 8; //A variable that stores in the HEAP was accessed by using a pointer and got initialized
 	cout << *pointer_to_new_variable;
