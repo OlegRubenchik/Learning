@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 void test_W6() {
 	std::cout << "Working!";
@@ -305,4 +306,122 @@ void W6_EX3() {
 		}
 		cout << endl;
 	} while (reply != 4);
+}
+
+// Question 4
+/**
+* Write a program and declare a structure called student with the following fields:
+• surname (string)
+• name (string)
+• assignment (int)
+• midterm (int)
+• final (int)
+• grade (char)
+Hence, write the following functions:
+*/
+struct Student {
+	string name, surname;
+	int assignment, midterm, final;
+	char grade;
+};
+/*
+* a) A char function calculateGrade that takes three value formal parameter
+(assignment, midterm, final), and assuming that the assignment weights 15%, the midterm
+40% and the final 45%, the function will return letter grade according to the table below:
+Final Mark Grade
+90 – 100 A
+80 – 89 B
+70 – 79 C
+60 – 69 D
+0 – 59 F
+*/
+char calculateGrade(int assignment,int midterm,int final) {
+	double grade = 0.15 * assignment + midterm * 0.4 + final * 0.45;
+	if (grade >= 90) return 'A';
+	else if (grade >= 80) return 'B';
+	else if (grade >= 70) return 'C';
+	else if (grade >= 60) return 'D';
+	else return 'F';
+}
+/*b) A void function readStudent that prompts the user to enter the surname, name, and
+grades for assignment, midterm and final exams for a student, calculates the letter grade,
+and returns the student through a reference formal parameter.
+*/
+void readStudent(Student &student) {
+	std::cout << "Enter name: ";
+	getline(cin, student.name);
+	std::cout << "Enter surname: ";
+	getline(cin, student.surname);
+	std::cout << "Enter grade for assignment: ";
+	std::cin >> student.assignment;
+	std::cout << "Enter grade for midterm: ";
+	std::cin >> student.midterm;
+	std::cout << "Enter grade for final: ";
+	std::cin >> student.final;
+	student.grade = calculateGrade(student.assignment, student.midterm, student.final);
+}
+/*c) A void function printStudent that will take an array of students, and a character
+grade and display all the students that got that grade. (In this function use pointer
+notations instead of array notations)*/
+void printStudent(Student students[], int n, char grade) {
+	for (int i = 0; i < n; i++) {
+		if ((*(students + i)).grade == grade) std::cout << (*(students + i)).surname << (*(students + i)).name << '\n';
+	}
+}
+/*Write the function main() and ask the user to enter the size of the class and allocate a
+dynamic array of students with the given size, i.e.
+st = new student[size];
+Hence display the following menu:
+Type 1 to insert a student
+2 to display students received a particular grade
+3 to display all students
+4 to exit
+By calling the functions implemented, make your program to work according to the menu.
+Note that choice 3 will first display the students that got an A, then the ones that got a B,
+etc. Make sure that the user cannot insert a student if the array is full.*/
+void W6_EX4() {
+	int size = 0,MaxSize;
+	bool flag = true;
+	Student* studs;
+	cout << "Enter the size of your class: ";
+	cin >> MaxSize;
+	studs = new Student[MaxSize];
+
+	while (flag) {
+		int reply;
+		cout << "Type 1 to insert a student\n";
+		cout << " 2 to display students received a particular grade\n";
+		cout << " 3 to display all students\n";
+		cout << " 4 to exit\n";
+		cout << " --> ";
+		cin >> reply;
+		cout << endl;
+		switch (reply) {
+		case 1:
+			readStudent(studs[size++]);
+			break;
+		case 2:
+			char grade;
+			cout << "Enter grade: ";
+			cin >> grade;
+			printStudent(studs, size, grade);
+			break;
+		case 3:
+			for (int i = 0; i < size; i++) {
+				cout << (*(studs + i)).name << " " << (*(studs + i)).surname << '\n';
+				cout << "Assignment: " << (*(studs + i)).assignment << '\n';
+				cout << "Midterm: " << (*(studs + i)).midterm << '\n';
+				cout << "Final: " << (*(studs + i)).final << '\n';
+				cout << "Grade: " << (*(studs + i)).grade << '\n';
+				cout << "-----------------------------------\n";	
+			}
+			break;
+		case 4:
+			flag = false;
+			break;
+		default:
+			cout << "That's the wrooooong numba\n";
+			break;
+		}
+	}
 }

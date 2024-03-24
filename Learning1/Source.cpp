@@ -53,7 +53,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W6_EX3();
+	W6_EX4();
 
 	return 0;
 }
