@@ -363,7 +363,7 @@ void readStudent(Student &student) {
 /*c) A void function printStudent that will take an array of students, and a character
 grade and display all the students that got that grade. (In this function use pointer
 notations instead of array notations)*/
-void printStudent(Student students[], int n, char grade) {
+void printStudent(Student *students, int n, char grade) {
 	for (int i = 0; i < n; i++) {
 		if ((*(students + i)).grade == grade) std::cout << (*(students + i)).surname << (*(students + i)).name << '\n';
 	}
@@ -424,4 +424,29 @@ void W6_EX4() {
 			break;
 		}
 	}
+}
+// Question 5
+
+class ComplexNumber {
+public: 
+	double real;
+	double imaginary;
+};
+
+void W6_EX5() {
+	ComplexNumber N1 = { 1.0,3.5 }, N2 = { 4.2,2.6 };
+	//Part A
+	ComplexNumber N3;
+	N3.real = N1.real + N1.real;
+	N3.imaginary = N1.imaginary + N1.imaginary;
+
+	//Part B
+	ComplexNumber* p;
+	p = new	ComplexNumber;
+	p->real = N1.real + N2.real;
+	p->imaginary = N1.imaginary + N2.imaginary;
+
+	cout << "N3 = " << N3.real << " + " << N3.imaginary << 'i' << '\n';
+	cout << "p = " << p->real << " + " << p->imaginary << 'i' << '\n';
+
 }

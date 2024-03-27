@@ -53,7 +53,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W6_EX4();
+	W6_EX5();
 
 	return 0;
 }
@@ -614,3 +614,5 @@ void wholeInterface() {
 	
 	}
 }
+
+// Question 5
