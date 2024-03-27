@@ -450,3 +450,31 @@ void W6_EX5() {
 	cout << "p = " << p->real << " + " << p->imaginary << 'i' << '\n';
 
 }
+// Question 6
+class complexNumber {
+public:
+	double* real;
+	double* imaginary;
+};
+void W6_EX6() {
+	complexNumber N1, N2;
+	N1.real = new double(1.0); N1.imaginary = new double(3.5);
+	N2.real = new double(4.2); N2.imaginary = new double(2.6);
+
+	// Part A
+	complexNumber N3;
+	N3.real = new double(*N1.real + *N2.real);
+	N3.imaginary = new double (*N1.imaginary + *N2.imaginary);
+	
+
+	//Part B
+	complexNumber* p;
+	p = new complexNumber;
+	p->real = new double;
+	p->imaginary = new double;
+	*p->real = *N1.real + *N2.real;
+	*p->imaginary = *N1.imaginary + *N2.imaginary;
+
+	cout << "N3 = " << *N3.real << ' + ' << *N3.imaginary << 'i' << '\n';
+	cout << "p = " << *p->real << ' + ' << *p->imaginary << 'i' << '\n';
+}

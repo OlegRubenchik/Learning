@@ -2,6 +2,7 @@
 #include <string>
 #include <stdlib.h> // for system("CLS")
 #include "WEEK6_MOODLE.h"
+#include "WEEK7_MOODLE.h"
 using namespace std;
 //RANDOM PRACTICE
 // --------------
@@ -33,6 +34,9 @@ void pointers_and_references_in_a_functions();
  void dynamic_memory_allocation();
  void dynamic_memory_allocation_arrays();
 
+ //namespaces
+ void namespaces();
+
  //------------
 //SOFDEV
 void Lab3Testing();
@@ -53,7 +57,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W6_EX5();
+	namespaces();
 
 	return 0;
 }
@@ -176,7 +180,8 @@ void pointers() {
 void pointers_reassigning() {
 	//YOU CAN CHANGE THE ADDRESS WHERE POINTER IS POINTING TO:
 	int x = 5; //A VALUE
-	int* p = &x; //A POINTER
+	int* p; //A POINTER
+	p = &x;
 	int y = 1;
 	cout << "The value (X): " << x << endl; // the VALUE
 	cout << "The address of a value (&x): " << &x << endl; // the ADDRESS of a VALUE
@@ -291,6 +296,21 @@ void class_string() {
 	cout << str + " Nigga"  << endl;
 }
 
+
+//namespaces
+namespace MyGlobals {
+	int x = 78;
+	const int y = 5;
+}
+void namespaces() {
+	//cout << x; // ERRROR
+	cout << MyGlobals::x << '\n';
+	cout << MyGlobals::y << '\n';
+	MyGlobals::x = 3;
+	cout << MyGlobals::x << '\n';
+}
+
+
 // sofdev
 void Lab3Testing() {
 	int total[10];
@@ -302,6 +322,7 @@ void Lab3Testing() {
 		cout << total[i] << '\n';
 	}
 }
+
 
 
 
