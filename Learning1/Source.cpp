@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h> // for system("CLS")
+
+//Weeks in MOODLE(PP2)
+#include "Week3_moodle.h"
 #include "WEEK6_MOODLE.h"
 using namespace std;
 //RANDOM PRACTICE
@@ -53,7 +56,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W6_EX4();
+	W3_EX3();
 
 	return 0;
 }
