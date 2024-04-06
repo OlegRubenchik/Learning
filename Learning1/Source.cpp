@@ -57,7 +57,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	namespaces();
+	W7_EX2();
 
 	return 0;
 }
