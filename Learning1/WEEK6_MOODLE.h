@@ -363,7 +363,7 @@ void readStudent(Student &student) {
 /*c) A void function printStudent that will take an array of students, and a character
 grade and display all the students that got that grade. (In this function use pointer
 notations instead of array notations)*/
-void printStudent(Student students[], int n, char grade) {
+void printStudent(Student *students, int n, char grade) {
 	for (int i = 0; i < n; i++) {
 		if ((*(students + i)).grade == grade) std::cout << (*(students + i)).surname << (*(students + i)).name << '\n';
 	}
@@ -424,4 +424,57 @@ void W6_EX4() {
 			break;
 		}
 	}
+}
+// Question 5
+
+class ComplexNumber {
+public: 
+	double real;
+	double imaginary;
+};
+
+void W6_EX5() {
+	ComplexNumber N1 = { 1.0,3.5 }, N2 = { 4.2,2.6 };
+	//Part A
+	ComplexNumber N3;
+	N3.real = N1.real + N1.real;
+	N3.imaginary = N1.imaginary + N1.imaginary;
+
+	//Part B
+	ComplexNumber* p;
+	p = new	ComplexNumber;
+	p->real = N1.real + N2.real;
+	p->imaginary = N1.imaginary + N2.imaginary;
+
+	cout << "N3 = " << N3.real << " + " << N3.imaginary << 'i' << '\n';
+	cout << "p = " << p->real << " + " << p->imaginary << 'i' << '\n';
+
+}
+// Question 6
+class complexNumber {
+public:
+	double* real;
+	double* imaginary;
+};
+void W6_EX6() {
+	complexNumber N1, N2;
+	N1.real = new double(1.0); N1.imaginary = new double(3.5);
+	N2.real = new double(4.2); N2.imaginary = new double(2.6);
+
+	// Part A
+	complexNumber N3;
+	N3.real = new double(*N1.real + *N2.real);
+	N3.imaginary = new double (*N1.imaginary + *N2.imaginary);
+	
+
+	//Part B
+	complexNumber* p;
+	p = new complexNumber;
+	p->real = new double;
+	p->imaginary = new double;
+	*p->real = *N1.real + *N2.real;
+	*p->imaginary = *N1.imaginary + *N2.imaginary;
+
+	cout << "N3 = " << *N3.real << ' + ' << *N3.imaginary << 'i' << '\n';
+	cout << "p = " << *p->real << ' + ' << *p->imaginary << 'i' << '\n';
 }
