@@ -46,12 +46,6 @@ void pointers_and_references_in_a_functions();
 //SOFDEV
 void Lab3Testing();
 
-//STRINGS AND POINTERS FROM MOODLE WEEK_5
-void w5_EX1();
-void w5_EX2();
-void w5_EX3();
-void w5_EX4(); 
-void w5_EX5();
 
 // Technical functions
 void wholeInterface();
@@ -331,123 +325,7 @@ void Lab3Testing() {
 
 
 
-//Strings exercises from Moodle
 
-// Write a program to read a c-string s1 and copy it to another string s2. 
-// Display s2. Do not use any predefine functions apart from gets_s().
-void w5_EX1() {
-	char s1[MAXLEN], s2[MAXLEN];
-	cout << "Enter: ";
-	gets_s(s1);
-	for (int i = 0; i < MAXLEN; i++) {
-		s2[i] = s1[i];
-	}
-	cout << s2;
-}
-
-//Write a program to read a c-string s and display its length. Do not use any predefine functions apart from gets_s().
-void w5_EX2() {
-	char s[MAXLEN];
-	int length = 0, i = 0;
-	cout << "Enter: ";
-	gets_s(s);
-	
-	while (s[i] != '\0') {
-		length++;
-		i++;
-	}
-	cout << length;
-}
-
-/** Write a program to read a c-string s and copy its characters in reverse before its original
-content i.e. if s = “student” then it will become “tnedutsstudent”. Display s. Do
-not use any predefine functions apart from gets_s().
-*/
-
-void w5_EX3() {
-	char s[MAXLEN];
-	int size = 0,i = 0,j=0;
-	cout << "Enter: ";
-	gets_s(s);
-	while (s[i] != '\0') {
-		size++;
-		i++;
-	}
-	for (int i = 0; i < size; i++) {
-		s[size + i] = s[i];
-	}
-	size *= 2;
-	s[size] = '\0';
-	for (int i = 0; i < size / 2; i++) {
-		s[i] = s[size - i - 1];
-	}
-	cout << s;
-}
-
-/** Write a program to read in characters one at a time from the keyboard and to count the
-number of characters. Additionally, for alphabetical characters, the program should keep a
-count (26 counts). When the user enters a full stop the program should stop, display the nonzero character counts four per line along with the corresponding character, then the overall
-character and exit.
-*/
-void w5_EX4() {
-	char c;
-	int count[26] = { 0 }, total = 0, quantity = 0;
-	cout << "Enter: \n";
-	while (c = cin.get(), c != '.') {
-		c = tolower(c);
-		if (c >= 'a' and c <= 'z') count[c - 'a']++; 
-		total++;
-	}
-	cout << endl;
-	for (int i = 0; i < 26; i++) {
-		if (count[i] != 0) {
-			cout << char('a' + i) << " = " << count[i] << " ";
-			quantity++;
-		}
-		if (quantity == 4) {
-			cout << endl;
-			quantity = 0;
-		}
-	}
-	cout << endl << endl;
-	cout << "In total: " << total << '\n';
-}
-
-//Pointers exercises
-
-/**
-* Write a program and declare a pointer to double, called A. By using A allocate a dynamic array
-of size n, where n is previously given by the user. Hence, prompt the user to enter n double
-values. Find and display the average of the values in the array, along with the biggest value.
-Throughout this program use pointer notation for the array.
-*/
-void w5_EX5() {
-	int size;
-	double *A, average = 0, max = 0;
-	cout << "Enter size: ";
-	cin >> size;
-	
-	A = new double[size];
-	cout << "Enter " << size << " values: \n";
-	for (int i = 0; i < size; i++) {
-		double value;
-		cout << i << ": ";
-		cin >> value;
-		*(A + i) = value;
-	}
-	/**for (int i = 0; i < size; i++) {
-		cout << *(A + i) << " ";
-	}*/
-	for (int i = 0; i < size; i++) {
-		double n = *(A + i);
-		average += n;
-		if (max < n) max = n;
-	}
-	average /= size;
-	cout << "Average: " << average << '\n';
-	cout << "Max: " << max << '\n';
-	delete[]A;
-}
 
 
 int printMenu() {
