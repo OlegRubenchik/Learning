@@ -62,7 +62,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W2_EX1();
+	W2_EX2();
 
 	return 0;
 }
