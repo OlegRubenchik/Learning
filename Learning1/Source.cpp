@@ -3,6 +3,7 @@
 #include <stdlib.h> // for system("CLS")
 
 //Weeks (PP2)
+#include "Week2_moodle.h"
 #include "Week3_moodle.h"
 #include "Week4_moodle.h"
 #include "WEEK6_MOODLE.h"
@@ -61,7 +62,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W4_EX1_checker();
+	W2_EX1();
 
 	return 0;
 }

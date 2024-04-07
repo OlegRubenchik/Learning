@@ -26,5 +26,14 @@
     <ClInclude Include="WEEK7_MOODLE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Week3_moodle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Week4_moodle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Week2_moodle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
