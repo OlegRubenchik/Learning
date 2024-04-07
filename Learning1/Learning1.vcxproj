@@ -133,6 +133,7 @@
     <ClInclude Include="Week2_moodle.h" />
     <ClInclude Include="Week3_moodle.h" />
     <ClInclude Include="Week4_moodle.h" />
+    <ClInclude Include="Week5_moodle.h" />
     <ClInclude Include="WEEK6_MOODLE.h" />
     <ClInclude Include="WEEK7_MOODLE.h" />
   </ItemGroup>

@@ -6,6 +6,7 @@
 #include "Week2_moodle.h"
 #include "Week3_moodle.h"
 #include "Week4_moodle.h"
+#include "Week5_moodle.h"
 #include "WEEK6_MOODLE.h"
 #include "WEEK7_MOODLE.h"
 using namespace std;
@@ -17,6 +18,9 @@ void Arrays2d();
 
 //strings
 void class_string();
+
+//c_strings
+void reverse_c_string();
 
 //enums
 void enums();
@@ -56,7 +60,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	W2_EX2();
+	test_c();
 
 	return 0;
 }
@@ -114,6 +118,21 @@ void dynamic_array() {
 	int* A = new int[size] {1,3};
 	cout << *A;
 	delete []A;
+}
+
+//c-strings
+void reverse_c_string() {
+	char s[MAXLEN],s_reversed[MAXLEN]; // c_strings
+	int size;
+	cout << "Enter a string and i will reverse it: ";
+	gets_s(s); // Reading a c_string
+	for (size = 0; s[size] != '\0'; size++); // Getting the size(length) of s c_string
+
+	for (int i = 0; i < size; i++) { // reverse copying algorythm
+		s_reversed[i] = s[size - i - 1];
+	}
+	s_reversed[size] = '\0'; // terminating a c_string
+	cout << s_reversed;
 }
 //enums
 

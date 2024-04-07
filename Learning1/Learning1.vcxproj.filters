@@ -35,5 +35,8 @@
     <ClInclude Include="Week2_moodle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Week5_moodle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
