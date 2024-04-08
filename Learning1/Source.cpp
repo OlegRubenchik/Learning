@@ -60,7 +60,7 @@ const int MAX = 2;
 const int MAXLEN = 255; // For strings
 
 int main() {
-	test_c();
+	W7_EX3();
 
 	return 0;
 }

@@ -52,3 +52,79 @@ void W5_EX3() {
 		s[i] = s[length - i - 1];
 	cout << s;
 }
+/*Question 5
+Write a program and declare a pointer to double, called A. By using A allocate a dynamic array
+of size n, where n is previously given by the user. Hence, prompt the user to enter n double
+values. Find and display the average of the values in the array, along with the biggest value.
+Throughout this program use pointer notation for the array.*/
+void W5_EX5() {
+	double* A;
+	int n;
+	cout << "How many values you will enter: ";
+	cin >> n;
+	double sum = 0;
+	double max = 0;
+	A = new double[n];
+	for (int i = 0; i < n; i++) {
+		cout << "Enter " << i << " value: ";
+		cin >> *(A + i);
+		sum += *(A + i);
+		if (max < *(A + i)) max = *(A + i);
+	}
+	cout << "Max: " << max << '\n';
+	cout << "Average: " << sum / n << '\n';
+}
+/*Question 8
+Add the following code in your program:
+*/
+struct Student_ {
+	string name;
+	int assignment;
+	int midterm;
+	int final;
+};
+struct UniversityClass {
+	int size;
+	Student_* students;
+};
+/*Write the main program and:
+a) Declare an object (variable) of the class UniversityClass, called myClass.
+b) Prompt the user to enter the number of students in the class (myClass.size), and create
+a dynamic array for the data member students (myClass.students) to store the
+information of each student.
+c) Ask the user to enter the information for all the students in the class.
+d) Display the name of each student along with his/her final grade according to the following
+weights:
+Assignments 15%
+Midterm Exam 35%
+Final Exam 50%
+e) Calculate and display the class’s average grade.
+f) Finally, release (delete) the memory allocated for the dynamic array (myClass.students).*/
+void W5_EX8() {
+	UniversityClass myClass;//a)
+	cout << "Enter a number of students: ";//b)
+	cin >> myClass.size;
+	myClass.students = new Student_[myClass.size];
+	for (int i = 0; i < myClass.size; i++) { //c)
+		cin.ignore(1000, '\n');
+		cout << "STUDENT NUMBER " << i << '\n';
+		cout << "NAME: ";
+		getline(cin, myClass.students[i].name);
+		cout << "ASSIGNMENT: ";
+		cin >> myClass.students[i].assignment;
+		cout << "MIDTERM: ";
+		cin >> myClass.students[i].midterm;
+		cout << "FINAL: ";
+		cin >> myClass.students[i].final;
+	}
+	float sum = 0;
+	for (int i = 0; i < myClass.size; i++) {
+		float grade = myClass.students[i].assignment * 0.15 + myClass.students[i].midterm * 0.35 + myClass.students[i].final * 0.5;
+		cout << myClass.students[i].name << ": " << grade << '\n';
+		sum += grade;
+
+	}
+	cout << "\n\nAVERAGE: " << sum / myClass.size;
+
+	delete myClass.students;
+}
